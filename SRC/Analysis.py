@@ -131,16 +131,16 @@ def univariate_analysis(df):
     plt.grid(True)
     plt.show()
 
-    # 2. Boxplot for StudyTimeWeekly
+    #Boxplot for StudyTimeWeekly
     plt.figure()
     sns.boxplot(y=df['StudyTimeWeekly'], color='skyblue')
     plt.title('Boxplot of Study Time Weekly')
     plt.grid(True)
     plt.show()
 
-    # 3. Bar Plot for Binned Absences
+    #Bar Plot for Binned Absences
     plt.figure()
-    # Bin absences into ranges (e.g., 0-5, 6-10, etc.)
+    #Bin absences into ranges (e.g., 0-5, 6-10, etc.)
     bins = [0, 5, 10, 15, 20, 25, 30]
     labels = ['0-5', '6-10', '11-15', '16-20', '21-25', '26-30']
     df['Absences_Binned'] = pd.cut(df['Absences'], bins=bins, labels=labels, include_lowest=True)
@@ -153,14 +153,14 @@ def univariate_analysis(df):
     # Clean up temporary column
     df = df.drop(columns=['Absences_Binned'])
     
-    # 4. Pie Chart for Gender
+    #Pie Chart for Gender
     plt.figure()
     df['Gender'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=['lightblue', 'lightpink'])
     plt.title('Gender Distribution')
     plt.ylabel('')
     plt.show()
 
-    # 5. KDE Plot for GPA
+    #KDE Plot for GPA
     plt.figure()
     sns.kdeplot(df['GPA'], color='purple', fill=True)
     plt.xlabel('GPA')
@@ -168,7 +168,7 @@ def univariate_analysis(df):
     plt.grid(True)
     plt.show()
 
-# Bivariate Analysis - Focus on correlations
+#Bivariate Analysis - Focus on correlations
 def bivariate_analysis(df):
     print("\n--- Bivariate Analysis ---")
 
