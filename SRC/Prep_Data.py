@@ -1,20 +1,28 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
-if __name__ == "__main__":
-    def load_and_split_data(filepath, test_size=0.2, random_state=42):
-        data = pd.read_csv(filepath)
-        print(f" Data loaded successfully. Total records: {len(data)}")
 
-        # Split features and target
-        X = data.drop(columns=['GradeClass'])
-        y = data['GradeClass']
+def load_student_data(filepath):
+    df = pd.read_csv(filepath)
+    print(" Data loaded successfully.")
+    return df
 
-        # Use exact test size for 479 records out of 2392
-        test_ratio = 479 / 2392
+def explore_student_data(df):
+    print("\nInfo about the dataset:")
+    print(df.info())
+    
+    print("\nSummary statistics of the dataset:")
+    print(df.describe())
+    
+    print("\nGradeClass distribution:")
+    print(df['GradeClass'].value_counts())
 
-        X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=test_ratio, random_state=random_state, stratify=y
-        )
+def prepare_data_for_training(df, test_size=0.2, random_state=42):
+    X = df.drop(columns=["GradeClass"])  # Features
+    y = df["GradeClass"]                 # Target
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=test_size, stratify=y, random_state=random_state
+    )
+    print(f"\nData split: {len(X_train)} training and {len(X_test)} testing samples.")
+    return X_train, X_test, y_train, y_test
 
-        print(f"Data split: {len(X_train)} training, {len(X_test)} testing samples.")
-        return X_train, X_test, y_train, y_test
+
