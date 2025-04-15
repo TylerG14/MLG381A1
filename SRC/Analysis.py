@@ -196,15 +196,10 @@ def bivariate_analysis(df):
     plt.grid(True)
     plt.show()
 
-    # Boxplot for GPA across categorical variables (if relevant)
+    # Boxplot for GPA across categorical variables 
     # 3. GPA by Tutoring
     plt.figure()
     sns.boxplot(x='Tutoring', y='GPA', data=df)
     plt.title('GPA by Tutoring Status')
     plt.grid(True)
     plt.show()
-
-# Example usage (you'd replace this with your actual dataset)
-# df = pd.read_csv('your_dataset.csv')
-# univariate_analysis(df)
-# bivariate_analysis(df)
