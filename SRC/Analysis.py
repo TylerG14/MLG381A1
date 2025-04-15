@@ -123,7 +123,6 @@ def univariate_analysis(df):
     plt.grid(True)
     plt.show()
 
-
     #Boxplot for GPA
     plt.figure()
     sns.boxplot(y=df['GPA'], color='skyblue')
