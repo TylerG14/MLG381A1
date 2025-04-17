@@ -1,9 +1,11 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from OddValueHandler import handle_missing_and_outliers
 
 def load_student_data(filepath):
     df = pd.read_csv(filepath)
     print(" Data loaded successfully.")
+    df = handle_missing_and_outliers(df)
     return df
 
 def explore_student_data(df):
