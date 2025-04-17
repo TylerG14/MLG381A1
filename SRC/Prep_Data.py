@@ -4,7 +4,8 @@ from OddValueHandler import handle_missing_and_outliers
 
 def load_student_data(filepath):
     df = pd.read_csv(filepath)
-    print(" Data loaded successfully.")
+    print("Data loaded successfully.")
+    df['GradeClass'] = df['GradeClass'].astype('int64')  # Convert to integer
     df = handle_missing_and_outliers(df)
     return df
 
