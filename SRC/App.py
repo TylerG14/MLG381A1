@@ -30,7 +30,7 @@ report_df = pd.DataFrame(report).transpose().reset_index().rename(columns={'inde
 app.layout = html.Div([
     html.H1("BrightPath Academy - Student Performance Classifier", style={'textAlign': 'center'}),
     
-    html.H2("📊 Classification Report", style={'marginTop': '20px'}),
+    html.H2("Classification Report", style={'marginTop': '20px'}),
     dash_table.DataTable(
         data=report_df.round(3).to_dict('records'),
         columns=[{"name": i, "id": i} for i in report_df.columns],
@@ -39,12 +39,12 @@ app.layout = html.Div([
         page_size=10,
     ),
 
-    html.H2("📉 GPA Distribution"),
+    html.H2("GPA Distribution"),
     dcc.Graph(
         figure=px.histogram(df, x="GPA", nbins=20, title="Distribution of GPA")
     ),
 
-    html.H2("🎯 Feature Importance"),
+    html.H2("Feature Importance"),
     dcc.Graph(
         figure=px.bar(
             x=model.feature_importances_,
