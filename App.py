@@ -13,7 +13,7 @@ app = dash.Dash(__name__)
 server = app.server  # For deployment on Render
 
 # Load and process data
-df = load_student_data("Data/Student_performance_data.csv")
+df = load_student_data("Student_performance_data.csv")
 df = engineer_features(df)
 X_train, X_test, y_train, y_test = prepare_data_for_training(df)
 
