@@ -2,5 +2,3 @@ dash
 pandas
 scikit-learn
 plotly
-Prep_Data
-Evaluations
