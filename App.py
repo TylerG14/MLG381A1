@@ -56,7 +56,7 @@ app.layout = html.Div([
 ])
 
 # Run app
-if name == "main":
+if __name__ == "__main__":
     print("Launching Dash app...")
     try:
         app.run(debug=True, host='127.0.0.1', port=8050)
