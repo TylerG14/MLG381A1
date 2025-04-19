@@ -56,5 +56,9 @@ app.layout = html.Div([
 ])
 
 # Run app
-if __name__ == '__main__':
-    app.run(debug=True)
+if name == "main":
+    print("Launching Dash app...")
+    try:
+        app.run(debug=True, host='127.0.0.1', port=8050)
+    except Exception as e:
+        print("Failed to start server:", e)
