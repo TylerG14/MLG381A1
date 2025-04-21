@@ -82,7 +82,7 @@ app.layout = html.Div([
 
                 # Right Column: Legend information
                 html.Div([
-                    html.H4("🔢 Input Legend for User Data Entry"),
+                    html.H4("Input Legend for User Data Entry"),
                     html.P("**Gender**\n0 = Female\n1 = Male"),
                     html.P("**Ethnicity**\n0 = Caucasian\n1 = African\n2 = Asian\n3 = Hispanic\n4 = Other"),
                     html.P("**ParentalEducation**\n0 = No formal education\n1 = Primary school\n2 = High school\n3 = Diploma/College\n4 = University Degree\n5 = Postgraduate"),
