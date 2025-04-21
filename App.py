@@ -82,7 +82,7 @@ app.layout = html.Div([
 
                 # Right Column: Legend image
                 html.Div([
-                    html.Img(src=app.get_asset_url('Articles/Legend.png'),
+                    html.Img(src=app.get_asset_url('Legend.png'),
                              style={'width': '100%', 'maxWidth': '400px', 'border': '1px solid #ccc', 'borderRadius': '5px'})
                 ], style={'flex': 1, 'alignSelf': 'flex-start'})
             ])
