@@ -80,11 +80,28 @@ app.layout = html.Div([
                     html.Div(id='prediction-output', style={'marginTop': '20px', 'fontSize': '20px'})
                 ], style={'flex': 1}),
 
-                # Right Column: Legend image
+                # Right Column: Legend information
                 html.Div([
-                    html.Img(src=app.get_asset_url('Legend.png'),
-                             style={'width': '100%', 'maxWidth': '400px', 'border': '1px solid #ccc', 'borderRadius': '5px'})
-                ], style={'flex': 1, 'alignSelf': 'flex-start'})
+                    html.H4("🔢 Input Legend for User Data Entry"),
+                    html.P("**Gender**\n0 = Female\n1 = Male"),
+                    html.P("**Ethnicity**\n0 = Caucasian\n1 = African\n2 = Asian\n3 = Hispanic\n4 = Other"),
+                    html.P("**ParentalEducation**\n0 = No formal education\n1 = Primary school\n2 = High school\n3 = Diploma/College\n4 = University Degree\n5 = Postgraduate"),
+                    html.P("**Tutoring**\n0 = No\n1 = Yes"),
+                    html.P("**ParentalSupport**\n0 = No support\n1 = Minimal support\n2 = Moderate support\n3 = Strong support"),
+                    html.P("**Extracurricular**\n0 = No\n1 = Yes"),
+                    html.P("**Sports**\n0 = No\n1 = Yes"),
+                    html.P("**Music**\n0 = No\n1 = Yes"),
+                    html.P("**Volunteering**\n0 = No\n1 = Yes"),
+                    html.P("**GradeClass**\n1 = Failing\n2 = Average\n3 = Good\n4 = Excellent"),
+                ], style={
+                    'flex': 1,
+                    'backgroundColor': '#f9f9f9',
+                    'border': '1px solid #ccc',
+                    'padding': '15px',
+                    'borderRadius': '8px',
+                    'fontSize': '14px',
+                    'whiteSpace': 'pre-wrap'
+                })
             ])
         ])
     ])
