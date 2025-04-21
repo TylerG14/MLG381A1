@@ -28,7 +28,7 @@ report.rename(columns={'index': 'Class'}, inplace=True)
 # Layout
 app.layout = html.Div([
     html.H1("BrightPath Academy - Student Performance Classifier", style={'textAlign': 'center'}),
-    
+
     dcc.Tabs([
         dcc.Tab(label='Dashboard', children=[
             html.H2("Classification Report"),
@@ -65,14 +65,27 @@ app.layout = html.Div([
 
         dcc.Tab(label='Predict New Student', children=[
             html.H2("Enter Student Information to Predict Performance"),
-            html.Div(id="input-fields", children=[
+
+            html.Div(style={'display': 'flex', 'gap': '40px'}, children=[
+
+                # Left Column: Form inputs
                 html.Div([
-                    html.Label(f"{col}"),
-                    dcc.Input(id=f'input-{col}', type='number', placeholder=f'Enter {col}', step=0.01)
-                ], style={'marginBottom': '10px'}) for col in X_train.columns
-            ]),
-            html.Button("Predict", id='predict-button', n_clicks=0, style={'marginTop': '10px'}),
-            html.Div(id='prediction-output', style={'marginTop': '20px', 'fontSize': '20px'})
+                    html.Div(id="input-fields", children=[
+                        html.Div([
+                            html.Label(f"{col}"),
+                            dcc.Input(id=f'input-{col}', type='number', placeholder=f'Enter {col}', step=0.01)
+                        ], style={'marginBottom': '10px'}) for col in X_train.columns
+                    ]),
+                    html.Button("Predict", id='predict-button', n_clicks=0, style={'marginTop': '10px'}),
+                    html.Div(id='prediction-output', style={'marginTop': '20px', 'fontSize': '20px'})
+                ], style={'flex': 1}),
+
+                # Right Column: Legend image
+                html.Div([
+                    html.Img(src=app.get_asset_url('Articles/Legend.png'),
+                             style={'width': '100%', 'maxWidth': '400px', 'border': '1px solid #ccc', 'borderRadius': '5px'})
+                ], style={'flex': 1, 'alignSelf': 'flex-start'})
+            ])
         ])
     ])
 ])
